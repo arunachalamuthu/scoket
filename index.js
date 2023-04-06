@@ -17,7 +17,7 @@ app.get('/api', (req, res) => {
 });
 const io = new Server(server,{
     cors:{
-        origin:"*",
+        origin:"http://localhost:3000",
         methods:["GET","POST"],
    
     }
@@ -56,6 +56,15 @@ socket.on("sec_message",(data)=>{
  console.log(data);
    socket.to(data.secID).emit('secreceive_message',data.message)
 })
+});
+
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
+  next();
 });
 
 server.listen(4055, () => {
