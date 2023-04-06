@@ -134,7 +134,7 @@ io.on("connection", (socket) => {
     // io.emit("users", { users: users });
   });
 });
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.json("Giphy Chat Server is running successfully");
 });
 app.use(function (req, res, next) {
