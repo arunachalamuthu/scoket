@@ -14,10 +14,11 @@ const server = http.createServer(app);
 app.use(cors())
 app.get('/api', (req, res) => {
   res.json('work')
+
 });
 const io = new Server(server,{
     cors:{
-        origin:"http://localhost:3000",
+        origin:"*",
         methods:["GET","POST"],
    
     }
