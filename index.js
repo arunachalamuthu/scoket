@@ -12,7 +12,7 @@ import cors from 'cors'
 const app = express();
 const server = http.createServer(app);
 app.use(cors())
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.json('work')
 });
 const io = new Server(server,{
