@@ -18,7 +18,8 @@ app.get('/api', (req, res) => {
 const io = new Server(server,{
     cors:{
         origin:"http://localhost:3001",
-        methods:["GET","POST"]
+        methods:["GET","POST"],
+        header:'Access-Control-Allow-Origin: *'
     }
 })
 io.on('connection', (socket) => {
