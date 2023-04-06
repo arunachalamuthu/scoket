@@ -120,6 +120,33 @@ io.on("connection", (socket) => {
     // });
     // socket.broadcast.emit("push", msg);
   });
+  socket.on('join_room',(data)=>{
+    console.log(data);
+  socket.join(data)
+
+}) 
+socket.on('sec-room',(data)=>{
+ console.log(data);
+socket.join(data)
+
+})
+socket.on("send_message",(data)=>{
+      
+    console.log(data);
+  //   socket.broadcast.emit("receive_message",data)
+    // socket.broadcast.emit("receive_front",data.message)
+     socket.to(data.room).emit('receive_message',data.message)
+})
+
+
+socket.on("sec_message",(data)=>{
+  
+  console.log(data);
+//   socket.broadcast.emit("receive_message",data)
+ console.log(data);
+   socket.to(data.secID).emit('secreceive_message',data.message)
+})
+
   socket.on("disconnect", (reason) => {
     // let index = -1;
     // for (let i = 0; i < users.length; i++) {
