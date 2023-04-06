@@ -16,10 +16,10 @@ app.get('/api', (req, res) => {
   res.json('work')
 });
 const io = new Server(server,{
-    // cors:{
-    //     origin:"*",
-    //     methods:["GET","POST"]
-    // }
+    cors:{
+        origin:"*",
+        methods:["GET","POST"]
+    }
 })
 io.on('connection', (socket) => {
   console.log(`a user connected ${socket.id}`);
